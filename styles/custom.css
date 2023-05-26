@@ -1,0 +1,76 @@
+.custom-input{
+    outline: none;
+}
+
+.custom-input:focus{
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.custom-width {
+    width: 320px; /* Set your desired width */
+}
+
+.custom-color-search{
+    color: #817e7e;
+}
+
+.custom-hero-position{
+    top: 60%;
+    left: 13%;
+}
+
+.custom-padding{
+    padding: 0px 180px;
+}
+
+.nav-item {
+    position: relative;
+}
+
+
+.active::after {
+    content: '';
+    position: absolute;
+    bottom: -9px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    transform: scaleX(1);
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    transform: scaleX(1);
+}
+
+.custom-button-color-write-post{
+    background-color: lightgrey;
+}
+
+.custom-button-color-write-post:hover{
+    background-color: #c4c0c0;
+}
+
+
+.allpost {
+    width: 65%; /* Width set to 50% */
+}
+
+.rightcontainer {
+    width: 35%; /* Width set to 50% */
+}
+
+.postCard{
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    margin: 5px 20px;
+}
+
+.image {
+    max-width: 100%;
+}

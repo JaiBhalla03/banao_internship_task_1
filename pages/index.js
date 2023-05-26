@@ -1,9 +1,13 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import heroImage from '../image/hero.png'
+import LowerNavbar from "@/components/LowerNavbar";
+import AllPost from "@/components/Allpost";
+import RightContainer from "@/components/Rightcontainer";
 
 const inter = Inter({ subsets: ['latin'] })
+
 
 export default function Home() {
   return (
@@ -14,10 +18,20 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-          <div className={'container'}>
-              <h1>Bootstrap in Next.js</h1>
-              <button className="btn btn-primary">Click Me</button>
+      <main className={'overflow-hidden'}>
+          <div className={'position-relative'}>
+              <Image src={heroImage} alt={'lol'} contain/>
+              <div className={'position-absolute text-white custom-hero-position'}>
+                  <h1 className={'fw-bold'}>Computer Engineering</h1>
+                  <p>142,765 Computer Engineers follow this</p>
+              </div>
+          </div>
+          <div className={'custom-padding'}>
+              <LowerNavbar/>
+              <div className={'d-flex pt-4'}>
+                  <AllPost/>
+                  <RightContainer/>
+              </div>
           </div>
       </main>
     </>
