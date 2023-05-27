@@ -17,7 +17,7 @@ const PopupForm = ({onClose}) => {
             {
                 showLogin ? (
                     <div className="modal d-flex flex-column justify-content-between">
-                        <div className={'bg-light text-success text-center'}>
+                        <div className={'bg-light text-success text-center py-2'}>
                             Let's learn, share & inspire each other with our passion for computer programming engineering. Sign Up now 🤘
                         </div>
                         <div className={'d-flex justify-content-between'}>
@@ -75,7 +75,7 @@ const PopupForm = ({onClose}) => {
                     </div>
                 ):(
                     <div className="modal d-flex flex-column justify-content-between">
-                        <div className={'bg-light text-success text-center'}>
+                        <div className={'bg-light text-success text-center py-2'}>
                             Let's learn, share & inspire each other with our passion for computer programming engineering. Sign Up now 🤘
                         </div>
                         <div className={'d-flex justify-content-between mb-4'}>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Image from "next/image";
 import {FiMoreHorizontal, FiMoreVertical} from "react-icons/fi";
 import {AiFillCalendar, AiOutlineEye} from "react-icons/ai";
@@ -6,6 +6,12 @@ import {BsFillShareFill} from "react-icons/bs";
 import {FaLocationArrow, FaShoppingBag} from "react-icons/fa";
 
 const Postcard = ({postImage, userImage, title, heading, description, isWebsite, isTimesJob, date, location, job}) => {
+    const [showDropdown, setShowDropdown] = useState(false);
+
+    const handleToggleDropdown = () => {
+        setShowDropdown((prevState) => !prevState);
+    };
+
     return (
         <div className={'postCard position-relative bg-white'}>
             <Image src={postImage} layout={'responsive'} className={'image'}/>
@@ -15,10 +21,27 @@ const Postcard = ({postImage, userImage, title, heading, description, isWebsite,
                     <div className={'fw-bold'}>
                         {heading}
                     </div>
-                    <div className={'d-flex flex-column justify-content-center'}>
-                        <FiMoreHorizontal size={20}/>
-                    </div>
+                    <div className={'position-relative more-button'}>
+                        {showDropdown ? (
+                            <FiMoreVertical size={20} onClick={handleToggleDropdown} />
+                        ) : (
+                            <FiMoreHorizontal size={20} onClick={handleToggleDropdown} />
+                        )}
+                        {showDropdown && (
+                            <div className="dropdown rounded-3">
+                                <ul>
+                                    <li>
+                                        Edit
+                                    </li>
+                                    <li>
+                                        Report
+                                    </li>
+                                    <li>Option 3</li>
+                                </ul>
+                            </div>
+                        )}
 
+                    </div>
                 </div>
                 <p className={'text-secondary'}>
                     {description}

@@ -130,7 +130,7 @@
     background: none;
     font-size: 24px;
     right: 0%;
-    top: -2%;
+    top: 0%;
     z-index: 100;
     color: #999;
 }
@@ -153,4 +153,43 @@
 
 .small{
     font-size: 13px;
+}
+
+
+.dropdown {
+    position: absolute;
+    top: 120%;
+    right: 0;
+    z-index: 10;
+    background-color: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    padding: 8px 0px;
+}
+
+.dropdown ul {
+    list-style-type: none;
+    padding: 0;
+    width: 180px;
+    margin: 0;
+}
+
+.dropdown li {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.dropdown li:hover{
+    background: #f1ebeb;
+}
+
+.more-button{
+    padding: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.more-button:active{
+    background: #f1ebeb;
 }
