@@ -15,7 +15,7 @@ const Navbar = () => {
         setShowPopup(false);
     }
     return (
-        <nav className="navbar navbar-light py-3 sticky-top bg-white border-bottom-1 border">
+        <nav className="navbar navbar-light py-2 sticky-top bg-white border-bottom-1 border d-none d-md-flex">
             <div className="mx-4 container-fluid">
                 <a className="navbar-brand d-flex flex-column justify-content-center" href="#">
                     <Image src={logo} alt="Logo" height={23} className="d-inline-block align-top" />

@@ -80,7 +80,7 @@ const PopupForm = ({onClose}) => {
                         </div>
                         <div className={'d-flex justify-content-between mb-4'}>
                             <div className={'forming'}>
-                                <h3 className={'fw-bold'}>Login</h3>
+                                <h3 className={'fw-bold'}>Sign In</h3>
                                 <div className="modal-body">
                                     <div className="form-group">
                                         <input type="email" className="form-control" placeholder={'email'} id="email" />
