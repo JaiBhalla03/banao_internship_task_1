@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { AiFillCaretDown, AiOutlineUsergroupAdd } from 'react-icons/ai';
+import {BsBoxArrowInRight} from "react-icons/bs";
 
 
 const LowerNavbar = () => {
     const [activeLink, setActiveLink] = useState(0);
-
+    const [toggle, setToggle] = useState(false);
     const handleLinkClick = (index) => {
         setActiveLink(index);
     };
@@ -59,13 +60,27 @@ const LowerNavbar = () => {
                         </a>
                     </li>
                 </ul>
-                <div>
+                <div className={'d-flex'}>
                     <button type="button" className="btn custom-button-color-write-post me-2">
                         Write a Post <AiFillCaretDown />
                     </button>
-                    <button type="button" className="btn btn-primary">
-                        <AiOutlineUsergroupAdd />Join Group
-                    </button>
+                    {
+                        toggle?(
+                            <button type="button" onClick={()=>setToggle(!toggle)} className="d-flex justify-content-center btn btn-white border border-2 text-secondary">
+                                <div className={'d-flex gap-1'}>
+                                    <div>
+                                        <BsBoxArrowInRight size={18}/>
+                                    </div>
+                                    <div>Leave Group</div>
+                                </div>
+                            </button>
+                        ):(
+                            <button type="button" onClick={()=>setToggle(!toggle)} className="btn btn-primary">
+                                <AiOutlineUsergroupAdd />Join Group
+                            </button>
+                        )
+                    }
+
                 </div>
             </div>
         </nav>
