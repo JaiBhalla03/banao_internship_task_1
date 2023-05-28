@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import imag from '../image/loginImage.png'
 import Image from "next/image";
 import Link from "next/link";
-import {AiFillFacebook, AiOutlineGoogle} from "react-icons/ai";
+import {AiFillFacebook, AiOutlineEye, AiOutlineEyeInvisible, AiOutlineGoogle} from "react-icons/ai";
 
 const PopupForm = ({onClose}) => {
     const [showLogin, setShowLogin] = useState(true);
@@ -12,6 +12,11 @@ const PopupForm = ({onClose}) => {
     const onSwitchToRegister = ()=>{
         setShowLogin(true);
     }
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
     return (
         <div className="modal-overlay">
             {
@@ -34,8 +39,20 @@ const PopupForm = ({onClose}) => {
                                     <div className="form-group">
                                         <input type="password" placeholder={'Password'} className="form-control" id="password" />
                                     </div>
-                                    <div className="form-group">
-                                        <input type="password" placeholder={'Confirm-password'} className="form-control" id="confirmPassword" />
+                                    <div className="form-group position-relative">
+                                        <input
+                                            type={showPassword ? 'text' : 'password'}
+                                            placeholder="Password"
+                                            className="form-control"
+                                            id="password"
+                                        />
+                                        <div
+                                            className="position-absolute eye top-50 translate-middle-y"
+                                            onClick={togglePasswordVisibility}
+                                            style={{ cursor: 'pointer' }}
+                                        >
+                                            {showPassword ? <AiOutlineEyeInvisible className={'text-secondary'} size={22}/> : <AiOutlineEye className={'text-secondary'} size={22}/>}
+                                        </div>
                                     </div>
                                     <button onClick={onClose} className="btn btn-primary w-100 rounded-pill my-4">Create Account</button>
                                     <button className={'d-flex gap-2 justify-content-center btn btn-light border border-1 rounded-1 w-100 my-2'}>
@@ -85,10 +102,21 @@ const PopupForm = ({onClose}) => {
                                     <div className="form-group">
                                         <input type="email" className="form-control" placeholder={'email'} id="email" />
                                     </div>
-                                    <div className="form-group">
-                                        <input type="password" placeholder={'Password'} className="form-control" id="password" />
+                                    <div className="form-group position-relative">
+                                        <input
+                                            type={showPassword ? 'text' : 'password'}
+                                            placeholder="Password"
+                                            className="form-control"
+                                            id="password"
+                                        />
+                                        <div
+                                            className="position-absolute eye top-50 translate-middle-y"
+                                            onClick={togglePasswordVisibility}
+                                            style={{ cursor: 'pointer' }}
+                                        >
+                                            {showPassword ? <AiOutlineEyeInvisible className={'text-secondary'} size={22}/> : <AiOutlineEye className={'text-secondary'} size={22}/>}
+                                        </div>
                                     </div>
-
                                     <button onClick={onClose} className="btn btn-primary w-100 rounded-pill my-4">Sign In</button>
                                     <button className={'d-flex gap-2 justify-content-center btn btn-light border border-1 rounded-1 w-100 my-2'}>
                                         <div className={'d-flex flex-col justify-content-center'}>

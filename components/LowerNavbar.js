@@ -87,7 +87,7 @@ const LowerNavbar = () => {
             </nav>
             <nav className="navbar navbar-expand-lg navbar-light bg-white lower-navbar-mobile">
                 <div className="container">
-                    <ul className="me-auto mb-2 mb-lg-0 d-flex justify-content-between w-100">
+                    <div className="me-auto mb-2 mb-lg-0 d-flex justify-content-between w-100">
                         <li className={'nav-link d-flex flex-column justify-content-center'}>
                             <div className={'fw-bold'}>
                                 Posts(386)
@@ -98,7 +98,7 @@ const LowerNavbar = () => {
                                 Filer: All <AiFillCaretDown/>
                             </button>
                         </li>
-                    </ul>
+                    </div>
                 </div>
             </nav>
         </div>

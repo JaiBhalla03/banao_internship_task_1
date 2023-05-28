@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import imag from '../image/loginImage.png'
 import Image from "next/image";
 import Link from "next/link";
-import {AiFillFacebook, AiOutlineGoogle} from "react-icons/ai";
+import {AiFillFacebook, AiOutlineEye, AiOutlineEyeInvisible, AiOutlineGoogle} from "react-icons/ai";
 
 const PopupFormMobile = ({onClose}) => {
     const [showLogin, setShowLogin] = useState(true);
@@ -13,20 +13,37 @@ const PopupFormMobile = ({onClose}) => {
     const onSwitchToRegister = ()=>{
         setShowLogin(false);
     }
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
     return (
-        <div className="modal-overlay">
+        <div className="modal-overlay-mobile">
             {
                 showLogin ? (
                     <div className="modal-mobile d-flex flex-column justify-content-between">
                         <div className={'d-flex flex-column justify-content-between justify-content-between forming-mobile'}>
                             <div className={'forming'}>
-                                <h3 className={'fw-bold my-2'}>Welcome Back!</h3>
+                                <h3 className={'fw-bold'}>Welcome Back!</h3>
                                 <div className="modal-body">
                                     <div className="form-group">
                                         <input type="email" className="form-control" placeholder={'email'} id="email" />
                                     </div>
-                                    <div className="form-group">
-                                        <input type="password" placeholder={'Password'} className="form-control" id="password" />
+                                    <div className="form-group position-relative">
+                                        <input
+                                            type={showPassword ? 'text' : 'password'}
+                                            placeholder="Password"
+                                            className="form-control"
+                                            id="password"
+                                        />
+                                        <div
+                                            className="position-absolute eye top-50 translate-middle-y"
+                                            onClick={togglePasswordVisibility}
+                                            style={{ cursor: 'pointer' }}
+                                        >
+                                            {showPassword ? <AiOutlineEyeInvisible className={'text-secondary'} size={22}/> : <AiOutlineEye className={'text-secondary'} size={22}/>}
+                                        </div>
                                     </div>
                                     <div className={'d-flex justify-content-between'}>
                                         <button onClick={onClose} className="btn btn-primary rounded-pill pop-mobile-button my-4">Sign In</button>
@@ -62,7 +79,7 @@ const PopupFormMobile = ({onClose}) => {
                     <div className="modal-mobile d-flex flex-column justify-content-between">
                         <div className={'d-flex flex-column justify-content-between justify-content-between forming-mobile'}>
                             <div className={'forming'}>
-                                <h3 className={'fw-bold my-2'}>Create Account</h3>
+                                <h3 className={'fw-bold'}>Create Account</h3>
                                 <div className="modal-body">
                                     <div className="form-group d-flex">
                                         <input type="text" className="form-control" placeholder={'First Name'} id="firstName" />
@@ -71,8 +88,20 @@ const PopupFormMobile = ({onClose}) => {
                                     <div className="form-group">
                                         <input type="email" className="form-control" placeholder={'email'} id="email" />
                                     </div>
-                                    <div className="form-group">
-                                        <input type="password" placeholder={'Password'} className="form-control" id="password" />
+                                    <div className="form-group position-relative">
+                                        <input
+                                            type={showPassword ? 'text' : 'password'}
+                                            placeholder="Password"
+                                            className="form-control"
+                                            id="password"
+                                        />
+                                        <div
+                                            className="position-absolute eye top-50 translate-middle-y"
+                                            onClick={togglePasswordVisibility}
+                                            style={{ cursor: 'pointer' }}
+                                        >
+                                            {showPassword ? <AiOutlineEyeInvisible className={'text-secondary'} size={22}/> : <AiOutlineEye className={'text-secondary'} size={22}/>}
+                                        </div>
                                     </div>
                                     <div className="form-group">
                                         <input type="password" placeholder={'Confirm-password'} className="form-control" id="confirmPassword" />
